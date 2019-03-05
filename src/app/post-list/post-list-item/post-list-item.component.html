@@ -1,0 +1,17 @@
+<li class="col-md-8" [ngStyle]="{'list-style': 'none', 'text-decoration': 'none'}"
+  [ngClass]="{'list-group-item': true,
+    'list-group-item-success': alone_post['loveIts'] > 0,
+    'list-group-item-danger': alone_post['loveIts'] < 0}">
+  <h4>
+    <span [ngStyle]="{color: getColor()}">{{ alone_post['title'] }}</span>
+    <em [ngStyle]="{'float': 'right', 'font-size': '11px', 'color': '#000'}">{{ alone_post['created_at'] | date: 'MM/d/y, h:s a' }}</em>
+  </h4>
+  <p [ngStyle]="{'font-size': '11px', 'color': '#000'}">
+    {{ alone_post['content'] }}
+  </p>
+  <p>
+    <button class="btn btn-success btn-sm" (click)="addLove()">Love it</button>
+    &nbsp;
+    <button class="btn btn-danger btn-sm" (click)="removeLove()">Don't love it</button>
+  </p>
+</li>
