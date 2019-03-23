@@ -1,15 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
+import {PostsService} from '../../services/posts.service';
 
 @Component({
   selector: 'app-post-list-item',
   templateUrl: './post-list-item.component.html',
   styleUrls: ['./post-list-item.component.css']
 })
+@Injectable()
 export class PostListItemComponent implements OnInit {
 
   @Input() alone_post: Array<PostListItemComponent>;
+  @Input() tabIndex: number;
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit() {
   }
@@ -23,11 +26,15 @@ export class PostListItemComponent implements OnInit {
   }
 
   addLove() {
-    this.alone_post['loveIts']++;
+    this.postsService.posts[this.tabIndex]['loveIts']++;
   }
 
   removeLove() {
-    this.alone_post['loveIts']--;
+    this.postsService.posts[this.tabIndex]['loveIts']--;
+  }
+
+  removePost() {
+    this.postsService.deletePost(this.tabIndex);
   }
 
 }

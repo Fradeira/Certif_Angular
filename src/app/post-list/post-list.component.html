@@ -1,3 +1,4 @@
+<h1>Tous nos posts</h1>
 <ul class="list-group">
-    <app-post-list-item [alone_post]="post" *ngFor="let post of tabPost"></app-post-list-item>
+    <app-post-list-item [alone_post]="post" [tabIndex]="i" *ngFor="let post of tabPosts;let i = index"></app-post-list-item>
 </ul>

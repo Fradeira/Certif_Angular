@@ -1,0 +1,12 @@
+<h1>Nouveau post</h1>
+<form [formGroup]="nPost" (ngSubmit)="postSubmit()">
+  <div class="form-group">
+    <label for="title">Titre</label>
+    <input type="text" id="title" class="form-control" formControlName="title">
+  </div>
+  <div class="form-group">
+    <label for="content">Description</label>
+    <input type="text" id="content" class="form-control" formControlName="content">
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]="nPost.invalid">Enregistrer</button>
+</form>
